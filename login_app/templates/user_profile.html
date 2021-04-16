@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>{{user.first_name}} {{user.last_name}}</h1>
+    <a href="/success">Back to Wall</a>
+    <div>
+        {% for post in user.user_messages.all %}
+        <h4>Message: <span style="color: green;">{{post.message}}</span></h4>
+        {% endfor %}
+    </div>
+    <div>
+        {% for comment in user.user_comments.all %}
+        <p style="text-indent: 40px"><span style="color: red;">{{comment.comment}}</span> {{comment.created_at}}</p>
+        {% endfor %}
+        
+    </div>
+
+</body>
+</html>
